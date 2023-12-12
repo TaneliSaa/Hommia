@@ -2,7 +2,7 @@ import { Button } from "@mui/base";
 import { AppBar, Toolbar } from "@mui/material";
 import { Box } from "@mui/system";
 
-const AppiBaari = () => {
+const Appbar = () => {
 
 
     return (
@@ -10,8 +10,12 @@ const AppiBaari = () => {
            <AppBar position="relative" sx={{bgcolor: "#00487C"}}>
                 <Toolbar>
                     <Box display='flex' flexGrow={1}>
-                        <Button variant='h6' href="/">Jotain</Button>
+                        <Button variant='h6' href="/">Something</Button>
                     </Box>
+
+                    <Button href="Register">Register</Button>
+
+                    <Button href="Login">Login</Button>
 
                 </Toolbar>
 
@@ -22,4 +26,4 @@ const AppiBaari = () => {
 
 } 
 
-export {AppiBaari};
+export {Appbar};

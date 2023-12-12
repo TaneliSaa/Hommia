@@ -1,6 +1,9 @@
 // Tänne tulee importit. Muista myös, että kaikki komponentit pitää myös importata seuraavasti: ./komponentit/"komponentin nimi"
-import {Etusivu} from './komponentit/Etusivu';
-import { AppiBaari } from './komponentit/Appbar';
+import {Frontpage} from './components/Frontpage';
+import { Appbar } from './components/Appbar';
+import { Register } from './components/Register';
+import { Login } from './components/Login';
+import { Sidebar } from './components/Sidebar';
 
 //Tänne muut importit esimerkiksi router yms.
 import {Routes, Route} from 'react-router-dom';
@@ -15,11 +18,18 @@ function App() {
     //Appbar ei ole routes sisällä, koska haluan että se renderöityy jokaisella sivulla. 
     <>
     
-      <AppiBaari />
+      <Appbar />
 
       <Routes>
-        <Route path='/' element={<Etusivu />} />
+
+        <Route path='/' element={<Frontpage />} />
+        <Route path='Register' element={<Register />} />
+        <Route path='Login' element={<Login />} />
+        
       </Routes>
+
+      <Sidebar />
+      
     </>
     
   );
