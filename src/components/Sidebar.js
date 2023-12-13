@@ -1,8 +1,0 @@
-function Sidebar() {
-  
-  
-}
-
-
-
-export  {Sidebar};

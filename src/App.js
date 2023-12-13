@@ -3,10 +3,11 @@ import {Frontpage} from './components/Frontpage';
 import { Appbar } from './components/Appbar';
 import { Register } from './components/Register';
 import { Login } from './components/Login';
-import { Sidebar } from './components/Sidebar';
+import {ShoppingCart} from './components/ShoppingCart';
 
 //Tänne muut importit esimerkiksi router yms.
 import {Routes, Route} from 'react-router-dom';
+
 
 function App() {
 
@@ -25,10 +26,11 @@ function App() {
         <Route path='/' element={<Frontpage />} />
         <Route path='Register' element={<Register />} />
         <Route path='Login' element={<Login />} />
+        <Route path='ShoppingCart' element={<ShoppingCart />} />
         
       </Routes>
 
-      <Sidebar />
+      
       
     </>
     

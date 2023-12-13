@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 const Login = () => {
 
@@ -9,6 +9,9 @@ const Login = () => {
 
         <>
         <h1>Login</h1>
+        <Button href="/Register">
+            Rekisteröidy
+        </Button>
         </>
     );
 };
