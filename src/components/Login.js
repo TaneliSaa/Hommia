@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Container } from "@mui/material";
 
 const Login = () => {
 
@@ -8,10 +8,14 @@ const Login = () => {
     return (
 
         <>
-        <h1>Login</h1>
-        <Button href="/Register">
-            Rekisteröidy
-        </Button>
+
+            <Container>
+                <h1>Login</h1>
+                <Button href="/Register">
+                    Rekisteröidy
+                </Button>
+            </Container>
+        
         </>
     );
 };

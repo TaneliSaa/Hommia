@@ -1,10 +1,15 @@
+import { Container } from "@mui/material"
+
 const ShoppingCart = () => {
 
 
 
     return (
         <>
-        <p>Ostoskori</p>
+            <Container>
+                <p>Ostoskori</p>
+            </Container>
+        
         </>
     )
 } 
