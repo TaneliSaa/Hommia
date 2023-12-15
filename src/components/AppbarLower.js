@@ -1,211 +1,205 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
-import MenuItem from '@mui/material/MenuItem';
-import Menu from '@mui/material/Menu';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import ShoppingCart from '@mui/icons-material/ShoppingCart';
-import Login from '@mui/icons-material/Login';
-import { Container, Typography } from '@mui/material';
+import { Button, Container, Typography } from '@mui/material';
+import { useState } from 'react';
 
 
 const AppbarLower = () => {
 
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+    const [dropDownVisibleProduct1,setDropDownVisibleProduct1] = useState(false);
+    const [dropDownVisibleProduct2,setDropDownVisibleProduct2] = useState(false);
+    const [dropDownVisibleProduct3,setDropDownVisibleProduct3] = useState(false);
+    const [dropDownVisibleProduct4,setDropDownVisibleProduct4] = useState(false);
+    const [dropDownVisibleProduct5,setDropDownVisibleProduct5] = useState(false);
+    const [dropDownVisibleProduct6,setDropDownVisibleProduct6] = useState(false);
+    const [dropDownVisibleProduct7,setDropDownVisibleProduct7] = useState(false);
 
-    const isMenuOpen = Boolean(anchorEl);
-    const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+    const onHowerProduct1 = () => {
+        setDropDownVisibleProduct1(true);
+        console.log("Hiiri päällä1")
+    }
 
-    const handleProfileMenuOpen = (event) => {
-        setAnchorEl(event.currentTarget);
-    };
+    const onNotHowerProduct1 = () => {
+        setDropDownVisibleProduct1(false);
+        console.log("Hiiri pois päältä1")
+    }
+    
+    const onHowerProduct2 = () => {
+        setDropDownVisibleProduct2(true);
+        console.log("Hiiri päällä2")
+    }
 
-    const handleMobileMenuClose = () => {
-        setMobileMoreAnchorEl(null);
-    };
+    const onNotHowerProduct2 = () => {
+        setDropDownVisibleProduct2(false);
+        console.log("Hiiri pois päältä2")
+    }
+    
+    const onHowerProduct3 = () => {
+        setDropDownVisibleProduct3(true);
+        console.log("Hiiri päällä3")
+    }
 
-    const handleMenuClose = () => {
-        setAnchorEl(null);
-        handleMobileMenuClose();
-    };
+    const onNotHowerProduct3 = () => {
+        setDropDownVisibleProduct3(false);
+        console.log("Hiiri pois päältä3")
+    }
+    
+    const onHowerProduct4 = () => {
+        setDropDownVisibleProduct4(true);
+        console.log("Hiiri päällä4")
+    }
 
-    const handleMobileMenuOpen = (event) => {
-        setMobileMoreAnchorEl(event.currentTarget);
-    };
+    const onNotHowerProduct4 = () => {
+        setDropDownVisibleProduct4(false);
+        console.log("Hiiri pois päältä4")
+    }
+    
+    const onHowerProduct5= () => {
+        setDropDownVisibleProduct5(true);
+        console.log("Hiiri päällä5")
+    }
 
-    const menuId = 'primary-search-account-menu';
-    const renderMenu = (
-        <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-        }}
-        id={menuId}
-        keepMounted
-        transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-        }}
-        open={isMenuOpen}
-        onClose={handleMenuClose}
-        >
-        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-        </Menu>
-    );
+    const onNotHowerProduct5 = () => {
+        setDropDownVisibleProduct5(false);
+        console.log("Hiiri pois päältä5")
+    }
+    
+    const onHowerProduct6 = () => {
+        setDropDownVisibleProduct6(true);
+        console.log("Hiiri päällä6")
+    }
 
-    const mobileMenuId = 'primary-search-account-menu-mobile';
-    const renderMobileMenu = (
-        <Menu
-        anchorEl={mobileMoreAnchorEl}
-        anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-        }}
-        id={mobileMenuId}
-        keepMounted
-        transformOrigin={{
-            vertical: 'top',
-            horizontal: 'right',
-        }}
-        open={isMobileMenuOpen}
-        onClose={handleMobileMenuClose}
-        >
-        <MenuItem>
-            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-            <Badge badgeContent={4} color="error">
-                <ShoppingCart />
-            </Badge>
-            </IconButton>
-            <p>Messages</p>
-        </MenuItem>
-        <MenuItem>
-            <IconButton
-            size="large"
-            aria-label="show 17 new notifications"
-            color="inherit"
-            >
-            <Badge>
-                <Login />
-            </Badge>
-            </IconButton>
-            <p>Notifications</p>
-        </MenuItem>
-        <MenuItem onClick={handleProfileMenuOpen}>
-            <IconButton
-            size="large"
-            aria-label="account of current user"
-            aria-controls="primary-search-account-menu"
-            aria-haspopup="true"
-            color="inherit"
-            >
-            <AccountCircle />
-            </IconButton>
-            <p>Profile</p>
-        </MenuItem>
-        </Menu>
-    );
+    const onNotHowerProduct6 = () => {
+        setDropDownVisibleProduct6(false);
+        console.log("Hiiri pois päältä6")
+    }
+    
+    const onHowerProduct7 = () => {
+        setDropDownVisibleProduct7(true);
+        console.log("Hiiri päällä7")
+    }
+
+    const onNotHowerProduct7 = () => {
+        setDropDownVisibleProduct7(false);
+        console.log("Hiiri pois päältä7")
+    }
+
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color='inherit'>
         <Container fixed>
             <Toolbar disableGutters>
-                <Typography
-                 variant='h6'
-                 noWrap
-                 component="a"
-                 sx={{
-                    mr: 5,
-                    display: {xs: 'none', md: 'flex'}
-                    
-                 }}
-                >
+                <Button
+                    color='inherit'
+                    size='small'
+                    variant=''
+                    href=''
+                    onMouseEnter={onHowerProduct1}
+                    onMouseLeave={onNotHowerProduct1}
+                    >
                     Tuotteet1
-                </Typography>
-                <Typography
-                 variant='h6'
-                 noWrap
-                 component="a"
-                 sx={{
-                    mr: 5,
-                    display: {xs: 'none', md: 'flex'}
-                    
-                 }}
-                >
+                </Button>
+                <Button
+                    color='inherit'
+                    size='small'
+                    variant=''
+                    href=''
+                    onMouseEnter={onHowerProduct2}
+                    onMouseLeave={onNotHowerProduct2}
+                    >
                     Tuotteet2
-                </Typography>
-                <Typography
-                 variant='h6'
-                 noWrap
-                 component="a"
-                 sx={{
-                    mr: 5,
-                    display: {xs: 'none', md: 'flex'}
-                    
-                 }}
-                >
+                </Button>
+                <Button
+                    color='inherit'
+                    size='small'
+                    variant=''
+                    href=''
+                    onMouseEnter={onHowerProduct3}
+                    onMouseLeave={onNotHowerProduct3}
+                    >
                     Tuotteet3
-                </Typography>
-                <Typography
-                 variant='h6'
-                 noWrap
-                 component="a"
-                 sx={{
-                    mr: 5,
-                    display: {xs: 'none', md: 'flex'}
-                    
-                 }}
-                >
+                </Button>
+                <Button
+                    color='inherit'
+                    size='small'
+                    variant=''
+                    href=''
+                    onMouseEnter={onHowerProduct4}
+                    onMouseLeave={onNotHowerProduct4}
+                    >
                     Tuotteet4
-                </Typography>
-                <Typography
-                 variant='h6'
-                 noWrap
-                 component="a"
-                 sx={{
-                    mr: 5,
-                    display: {xs: 'none', md: 'flex'}
-                    
-                 }}
-                >
+                </Button>
+                <Button
+                    color='inherit'
+                    size='small'
+                    variant=''
+                    href=''
+                    onMouseEnter={onHowerProduct5}
+                    onMouseLeave={onNotHowerProduct5}
+                    >
                     Tuotteet5
-                </Typography>
-                <Typography
-                 variant='h6'
-                 noWrap
-                 component="a"
-                 sx={{
-                    mr: 5,
-                    display: {xs: 'none', md: 'flex'}
-                    
-                 }}
-                >
+                </Button>
+                <Button
+                    color='inherit'
+                    size='small'
+                    variant=''
+                    href=''
+                    onMouseEnter={onHowerProduct6}
+                    onMouseLeave={onNotHowerProduct6}
+                    >
                     Tuotteet6
-                </Typography>
-                <Typography
-                 variant='h6'
-                 noWrap
-                 component="a"
-                 sx={{
-                    mr: 5,
-                    display: {xs: 'none', md: 'flex'}
-                    
-                 }}
-                >
+                </Button>
+                <Button
+                    color='inherit'
+                    size='small'
+                    variant=''
+                    href=''
+                    onMouseEnter={onHowerProduct7}
+                    onMouseLeave={onNotHowerProduct7}
+                    >
                     Tuotteet7
-                </Typography>
-          </Toolbar>
+                </Button>
+          </Toolbar>  
         </Container>
       </AppBar>
-      {renderMenu}
+        { dropDownVisibleProduct1 && 
+            <Container>
+                <p>Tuote1 päällä ollaan</p>
+            </Container>
+        }
+        { dropDownVisibleProduct2 && 
+            <Container>
+                <p>Tuote2 päällä ollaan</p>
+            </Container>
+        }
+        { dropDownVisibleProduct3 && 
+            <Container>
+                <p>Tuote3 päällä ollaan</p>
+            </Container>
+        }
+        { dropDownVisibleProduct4 && 
+            <Container>
+                <p>Tuote4 päällä ollaan</p>
+            </Container>
+        }
+        { dropDownVisibleProduct5 && 
+            <Container>
+                <p>Tuote5 päällä ollaan</p>
+            </Container>
+        }
+        { dropDownVisibleProduct6 && 
+            <Container>
+                <p>Tuote6 päällä ollaan</p>
+            </Container>
+        }
+        { dropDownVisibleProduct7 && 
+            <Container>
+                <p>Tuote7 päällä ollaan</p>
+            </Container>
+        }
+
     </Box>
   );
 }

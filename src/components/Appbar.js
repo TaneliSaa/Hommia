@@ -60,7 +60,7 @@ const Appbar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" color='success'>
         <Container>
-          <Toolbar disableGutters='true' variant='regular'>
+          <Toolbar disableGutters variant='regular'>
             <IconButton
               size="large"
               edge="start"
