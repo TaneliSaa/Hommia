@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -12,6 +11,7 @@ import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import Login from '@mui/icons-material/Login';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Button, Container } from '@mui/material';
+import { useState } from 'react';
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -54,6 +54,7 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
+  
 const Appbar = () => {
 
   return (
