@@ -1,3 +1,4 @@
+//Importit
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -10,10 +11,10 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import Login from '@mui/icons-material/Login';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import { Button, Container } from '@mui/material';
+import { Button, Container, Paper, Popover } from '@mui/material';
 import { useState } from 'react';
 
-
+//Tyylimäärittelyt
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -55,11 +56,30 @@ const Search = styled('div')(({ theme }) => ({
   }));
 
   
-const Appbar = () => {
+
+  
+const AppbarComponent = () => {
+
+  //State-muuttujat
+  const [anchorEl1,setAnchorEl1] = useState(null);
+  const [anchorEl2,setAnchorEl2] = useState(null);
+
+  const handleHoverOver = (event) => {
+    setAnchorEl1(event.currentTarget);
+  }
+
+  const handleClose = () => {
+    setAnchorEl1(null);
+  }
+  
+  const open = Boolean(anchorEl1);
+
+  
+
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color='success'>
+      <AppBar position='static' color='success'>
         <Container>
           <Toolbar disableGutters variant='regular'>
             <IconButton
@@ -97,9 +117,39 @@ const Appbar = () => {
               variant=''
               startIcon={<Login />}
               href='Login'
+              onMouseEnter={handleHoverOver}
+              
               >
                 Kirjaudu
               </Button>
+              <Popover
+                open={open}
+                anchorEl={anchorEl1}
+                onClose={handleClose}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'center',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'center',
+                }}
+               
+              >
+                <Paper>
+                  <form>
+                    <label>
+                      Nimi
+                      <input type='text' />
+                    </label>
+                    <br />
+                    <label>
+                      Salasana
+                      <input type='password' />
+                    </label>
+                  </form>
+                </Paper>
+              </Popover>
               <Button
               color='inherit'
               size='small'
@@ -109,6 +159,7 @@ const Appbar = () => {
               >
                 Ostoskori
               </Button>
+              
             </Box>
             <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
               <IconButton
@@ -127,4 +178,4 @@ const Appbar = () => {
   );
 }
     
-export {Appbar};
+export {AppbarComponent};

@@ -1,6 +1,6 @@
 // Tänne tulee importit. Muista myös, että kaikki komponentit pitää myös importata seuraavasti: ./komponentit/"komponentin nimi"
 import {Frontpage} from './components/Frontpage';
-import { Appbar } from './components/Appbar';
+import { AppbarComponent } from './components/Appbar';
 import { Register } from './components/Register';
 import { Login } from './components/Login';
 import { AppbarLower } from './components/AppbarLower';
@@ -19,7 +19,7 @@ function App() {
     //Appbar ei ole routes sisällä, koska haluan että se renderöityy jokaisella sivulla. 
     <>
     
-      <Appbar />
+      <AppbarComponent />
       <AppbarLower />
 
       <Routes>
