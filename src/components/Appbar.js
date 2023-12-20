@@ -11,8 +11,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import Login from '@mui/icons-material/Login';
 import MoreIcon from '@mui/icons-material/MoreVert';
-import { Button, Container, Paper, Popover } from '@mui/material';
+import { Avatar, Button, Container, Grid, Popover, TextField } from '@mui/material';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 //Tyylimäärittelyt
 const Search = styled('div')(({ theme }) => ({
@@ -55,14 +56,12 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
-  
 
-  
 const AppbarComponent = () => {
 
   //State-muuttujat
   const [anchorEl1,setAnchorEl1] = useState(null);
-  const [anchorEl2,setAnchorEl2] = useState(null);
+
 
   const handleHoverOver = (event) => {
     setAnchorEl1(event.currentTarget);
@@ -71,11 +70,8 @@ const AppbarComponent = () => {
   const handleClose = () => {
     setAnchorEl1(null);
   }
-  
+
   const open = Boolean(anchorEl1);
-
-  
-
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -128,27 +124,75 @@ const AppbarComponent = () => {
                 onClose={handleClose}
                 anchorOrigin={{
                   vertical: 'bottom',
-                  horizontal: 'center',
+                  horizontal: 'left',
                 }}
                 transformOrigin={{
                   vertical: 'top',
-                  horizontal: 'center',
+                  horizontal: 'left',
                 }}
                
               >
-                <Paper>
-                  <form>
-                    <label>
-                      Nimi
-                      <input type='text' />
-                    </label>
-                    <br />
-                    <label>
-                      Salasana
-                      <input type='password' />
-                    </label>
-                  </form>
-                </Paper>
+                <Container  maxWidth="xs">
+                  <Box
+                    sx={{
+                      marginTop: 1,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      maxHeight: 300,
+                      maxWidth: 300,
+                    }}
+                    >
+                      <Avatar sx={{ m: 1, bgcolor: '' }} />
+                      <Typography variant="h5">
+                        Kirjaudu sisään
+                      </Typography>
+                      <Box  noValidate sx={{ mt: 1 }}>
+                        <TextField
+                          size='small'
+                          margin="dense"
+                          required
+                          fullWidth
+                          id="email"
+                          label="Sähköposti"
+                          name="email"
+                          autoComplete="email"
+                          autoFocus
+                        />
+                        <TextField
+                          size='small'
+                          margin="dense"
+                          required
+                          fullWidth
+                          name="password"
+                          label="Salasana"
+                          type="password"
+                          id="password"
+                          autoComplete="password"
+                        />
+                        <Button
+                          type="submit"
+                          fullWidth
+                          variant="outlined"
+                          sx={{ mt: 1, mb: 1 }}
+                        >
+                          Kirjaudu sisään
+                        </Button>
+                        <Box
+                         sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          mb: 1
+                         }}
+                         >
+                          <Link href='' variant="body2">
+                            Unohditko salasanan?
+                          </Link>
+                        </Box>
+                      </Box>
+                    </Box>
+                  </Container>
               </Popover>
               <Button
               color='inherit'
