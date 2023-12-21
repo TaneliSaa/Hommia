@@ -112,13 +112,14 @@ const AppbarComponent = () => {
               size='small'
               variant=''
               startIcon={<Login />}
-              href='Login'
-              onMouseEnter={handleHoverOver}
-              
+              onClick={handleHoverOver}
               >
                 Kirjaudu
               </Button>
               <Popover
+                sx={{
+                  pointerEvents: 'auto',
+               }}
                 open={open}
                 anchorEl={anchorEl1}
                 onClose={handleClose}
@@ -130,6 +131,7 @@ const AppbarComponent = () => {
                   vertical: 'top',
                   horizontal: 'left',
                 }}
+                
                
               >
                 <Container  maxWidth="xs">
@@ -205,21 +207,10 @@ const AppbarComponent = () => {
               </Button>
               
             </Box>
-            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-haspopup="true"
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
-            </Box>
           </Toolbar>
         </Container>
       </AppBar>
     </Box>
   );
 }
-    
 export {AppbarComponent};
