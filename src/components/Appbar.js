@@ -61,6 +61,7 @@ const AppbarComponent = () => {
 
   //State-muuttujat
   const [anchorEl1,setAnchorEl1] = useState(null);
+  const [anchorEl2,setAnchorEl2] = useState(null);
 
 
   const handleHoverOver = (event) => {
@@ -71,7 +72,17 @@ const AppbarComponent = () => {
     setAnchorEl1(null);
   }
 
+  const handleHoverOver2 = (event) => {
+    setAnchorEl2(event.currentTarget);
+  }
+
+  const handleClose2 = () => {
+    setAnchorEl2(null);
+  }
+
   const open = Boolean(anchorEl1);
+  const open2 = Boolean(anchorEl2);
+
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -197,15 +208,61 @@ const AppbarComponent = () => {
                   </Container>
               </Popover>
               <Button
-              color='inherit'
-              size='small'
-              variant=''
-              startIcon={<ShoppingCart />}
-              href='ShoppingCart'
-              >
-                Ostoskori
+                color='inherit'
+                size='small'
+                variant=''
+                startIcon={<ShoppingCart />}
+                onClick={handleHoverOver2}
+                >
+                  Ostoskori
               </Button>
-              
+
+              <Popover
+                sx={{
+                  pointerEvents: 'auto',
+               }}
+                open={open2}
+                anchorEl={anchorEl2}
+                onClose={handleClose2}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 130,
+                }}
+                
+               
+              >
+                <Container  maxWidth="xs">
+                  <Typography variant='h6'>Ostoskori</Typography>
+                  <Box
+                    sx={{
+                      marginTop: 1,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      maxHeight: 300,
+                      width: 300,
+                    }}
+                    >
+                     <Typography
+                      fullWidth
+                      >
+                        Ostoskorisi on tyhjä
+                      </Typography>
+                     <Button
+                          type="submit"
+                          fullWidth
+                          variant="outlined"
+                          sx={{ mt: 1, mb: 1 }}
+                        >
+                          Sulje
+                        </Button>
+                    </Box>
+                  </Container>
+              </Popover>
             </Box>
           </Toolbar>
         </Container>
