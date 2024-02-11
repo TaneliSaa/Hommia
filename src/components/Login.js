@@ -8,7 +8,6 @@ const Login = () => {
     return (
 
         <>
-
             <Container>
                 <h1>Login</h1>
                 <Button href="/Register">

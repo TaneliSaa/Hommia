@@ -10,10 +10,11 @@ import Home from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingCart from '@mui/icons-material/ShoppingCart';
 import Login from '@mui/icons-material/Login';
-import MoreIcon from '@mui/icons-material/MoreVert';
-import { Avatar, Button, Container, Grid, Popover, TextField } from '@mui/material';
+import { Avatar, Button, Container, Popover, TextField, makeStyles } from '@mui/material';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+
 
 //Tyylimäärittelyt
 const Search = styled('div')(({ theme }) => ({
@@ -56,13 +57,14 @@ const Search = styled('div')(({ theme }) => ({
     },
   }));
 
+  
 
 const AppbarComponent = () => {
-
   //State-muuttujat
   const [anchorEl1,setAnchorEl1] = useState(null);
   const [anchorEl2,setAnchorEl2] = useState(null);
-
+  const [email,setEmail] = useState("")
+  const [password,setPassword] = useState("");
 
   const handleHoverOver = (event) => {
     setAnchorEl1(event.currentTarget);
@@ -83,10 +85,19 @@ const AppbarComponent = () => {
   const open = Boolean(anchorEl1);
   const open2 = Boolean(anchorEl2);
 
+  const handleSubmit = () => {
+
+    console.log(
+      "Login console:", "\n",
+      "Login sähköposti: ", email,  "\n",
+      "Login salasana: " , password,  "\n",
+    )
+  }
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position='static' color='success'>
+
+    <Box sx={{flexGrow: 1}}>
+      <AppBar position="static" color="success">
         <Container>
           <Toolbar disableGutters variant='regular'>
             <IconButton
@@ -116,7 +127,7 @@ const AppbarComponent = () => {
                 inputProps={{ 'aria-label': 'search' }}
               />
             </Search>
-            <Box sx={{ flexGrow: 1 }} />
+            <Box  />
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
               <Button
               color='inherit'
@@ -124,6 +135,7 @@ const AppbarComponent = () => {
               variant=''
               startIcon={<Login />}
               onClick={handleHoverOver}
+              
               >
                 Kirjaudu
               </Button>
@@ -171,6 +183,8 @@ const AppbarComponent = () => {
                           name="email"
                           autoComplete="email"
                           autoFocus
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
                         />
                         <TextField
                           size='small'
@@ -182,12 +196,19 @@ const AppbarComponent = () => {
                           type="password"
                           id="password"
                           autoComplete="password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
                         />
                         <Button
                           type="submit"
                           fullWidth
                           variant="outlined"
                           sx={{ mt: 1, mb: 1 }}
+                          onClick={() => {
+                            handleSubmit();
+                            setEmail("");
+                            setPassword("");
+                            }}
                         >
                           Kirjaudu sisään
                         </Button>
@@ -199,7 +220,7 @@ const AppbarComponent = () => {
                           mb: 1
                          }}
                          >
-                          <Link href='' variant="body2">
+                          <Link to='ForgottenPassword' variant="body2">
                             Unohditko salasanan?
                           </Link>
                         </Box>
@@ -257,6 +278,7 @@ const AppbarComponent = () => {
                           fullWidth
                           variant="outlined"
                           sx={{ mt: 1, mb: 1 }}
+                          onClick={handleClose2}
                         >
                           Sulje
                         </Button>

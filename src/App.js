@@ -8,6 +8,7 @@ import { ShoppingCart } from './components/ShoppingCart';
 
 //Tänne muut importit esimerkiksi router yms.
 import {Routes, Route} from 'react-router-dom';
+import { ForgottenPassword } from './components/ForgottenPassword';
 
 function App() {
 
@@ -28,6 +29,7 @@ function App() {
         <Route path='Register' element={<Register />} />
         <Route path='Login' element={<Login />} />
         <Route path='ShoppingCart' element={<ShoppingCart />} />
+        <Route path='ForgottenPassword' element={<ForgottenPassword />} />
         
       </Routes>
 
